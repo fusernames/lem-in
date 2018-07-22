@@ -1,41 +1,42 @@
 #include "lem_in.h"
 
+static int		ft_print_comb(t_list *comb)
+{
+	t_list	*path;
+
+	path = NULL;
+	while (comb)
+	{
+		printf("paths :\n");
+		path = comb->content;
+		while (path)
+		{
+			printf("%s - ", ((t_room *)path->content)->name);
+			path = path->next;
+		}
+		printf("\n");
+		comb = comb->next;
+	}
+	return (0);
+}
+
 int		main(void)
 {
-	t_list	*room;
-	t_list	*pipe;
-	t_list	*ant;
-	t_list	*path;
-	t_list	*tmp;
-
-	room = NULL;
-	pipe = NULL;
-	ant = NULL;
-	path = NULL;
-	if (ft_parser(&room, &pipe, &ant))
+	t_data	data;
+	
+	data.rooms = NULL;
+	data.pipes = NULL;
+	data.ants = NULL;
+	data.paths = NULL;
+	data.combs = NULL;
+	if (ft_parser(&(data.rooms), &(data.pipes), &(data.ants)))
 		exit(1);
-	/*while (room)
-	{
-		printf("name : %s\n", ((t_room *)room->content)->name);
-		printf("type : %d\n", ((t_room *)room->content)->type);
-
-		room = room->next;
-	}
-	printf("name : %s\n", ((t_pipe *)pipe->content)->room[0]->name);
-	*/
-	path = ft_find_path(ft_find_room_by_type(room, 1), pipe);
-	while (path)
-	{
-		tmp = path->content;
-		printf("chemin\n");
-		while (tmp)
-		{
-			printf("%s => ", ((t_path *)tmp->content)->room->name);
-			tmp = tmp->next;
-		}
-		path = path->next;
-		printf("\n");
-	}
+	if (ft_check_exceptions(data.rooms, data.pipes))
+		exit (1);
+	data.paths = ft_find_path(ft_find_room_by_type(data.rooms, 1), data.pipes);
+	ft_find_comb(data.paths, NULL, &(data.combs), NULL);
+	ft_print_comb(data.combs);
+	ft_clean(&data);
 	// boucle (1)
 	// faire bouger de 1 de toute les salles
 	// faire choisir un chemin les fourmis du start

@@ -6,10 +6,15 @@ end 5 0
 room1 9 0
 room2 13 0
 room3 0 0
+room4 0 0
 start-room1
 start-room2
+start-room3
+start-room4
 room1-room2
 room2-room3
 room3-end
-room2-end
 room1-end
+room2-room4
+room4-end
+room2-end

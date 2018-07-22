@@ -48,12 +48,3 @@ int		ft_create_ant(int nb_ants, t_list **ant, t_list **room)
 	}
 	return (0);
 }
-
-int		ft_create_path(t_list **path, t_room *room)
-{
-	t_path new;
-
-	new.room = room;
-	ft_lstnewadd(&new, sizeof(new), path);
-	return (0);
-}
