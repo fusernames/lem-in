@@ -30,20 +30,23 @@ typedef struct	s_ant {
 	t_room			*room;
 }				t_ant;
 
-int		ft_parser(t_list **room, t_list **pipe, t_list **ant);
+int		ft_parser(t_data *data);
 int		ft_check_exceptions(t_list *rooms, t_list *pipes);
 t_list	*ft_find_path(t_room *room, t_list *pipe);
 
 t_room	*ft_find_room_by_name(t_list *start, char *name);
 t_room	*ft_find_room_by_type(t_list *start, int type);
 
-int		ft_create_room(char *line, int type, t_list **room);
-int		ft_create_pipe(char *line, t_list **pipe, t_list **room);
-int		ft_create_ant(int nb_ants, t_list **ant, t_list **room);
+int		ft_create_room(char *line, int type, t_data *data);
+int		ft_create_pipe(char *line, t_data *data);
+int		ft_create_ant(int nb_ants, t_data *data);
 int		ft_create_path(t_list **path, t_room *room);
 
 int		ft_find_comb(t_list *paths, t_list *path, t_list **comb, t_list *current_comb);
 
 int		ft_clean(t_data *data);
+int		ft_travel(t_data *data);
+int		ft_choose_path(t_data *data);
+int		ft_print_move(t_ant *ant);
 
 #endif

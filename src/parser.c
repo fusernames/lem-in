@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static int	ft_parser_room(t_list **room, char **line)
+static int	ft_parser_room(t_data *data, char **line)
 {
 	int		type;
 
@@ -19,7 +19,7 @@ static int	ft_parser_room(t_list **room, char **line)
 			type = 2;
 		else
 		{
-			if (ft_create_room(*line, type, room))
+			if (ft_create_room(*line, type, data))
 				return (1);
 			type = 0;
 		}
@@ -27,7 +27,7 @@ static int	ft_parser_room(t_list **room, char **line)
 	return (0);
 }
 
-static int	ft_parser_pipe(t_list **pipe, t_list **room, char **line)
+static int	ft_parser_pipe(t_data *data, char **line)
 {
 	while (1)
 	{
@@ -36,7 +36,7 @@ static int	ft_parser_pipe(t_list **pipe, t_list **room, char **line)
 		else if (ft_charoc(*line, '-') != 1)
 			break;
 		else 
-			if (ft_create_pipe(*line, pipe, room))
+			if (ft_create_pipe(*line, data))
 				return (1);
 		if (!(get_next_line(0, line)))
 			break;
@@ -44,16 +44,16 @@ static int	ft_parser_pipe(t_list **pipe, t_list **room, char **line)
 	return (0);
 }
 
-int			ft_parser(t_list **room, t_list **pipe, t_list **ant)
+int			ft_parser(t_data *data)
 {
 	char	*line;
 	int		nb_ants;
 	
 	get_next_line(0, &line);
 	nb_ants = ft_atoi(line);
-	if (ft_parser_room(room, &line)
-		|| ft_parser_pipe(pipe, room, &line)
-		|| ft_create_ant(nb_ants, ant, room))
+	if (ft_parser_room(data, &line)
+		|| ft_parser_pipe(data, &line)
+		|| ft_create_ant(nb_ants, data))
 		return (1);
 	return (0);
 }

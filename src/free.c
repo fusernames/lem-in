@@ -20,5 +20,8 @@ int			ft_clean(t_data *data)
 {
 	ft_free_paths(data->paths);
 	ft_lstfree(&(data->combs));
+	ft_lstfree(&(data->pipes));
+	ft_lstfree(&(data->ants));
+	ft_lstfree(&(data->rooms));
 	return (0);
 }

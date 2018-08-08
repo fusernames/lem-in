@@ -20,8 +20,11 @@ SRC_DIR			= 	src
 SRC				=	$(wildcard $(SRC_DIR)/*.c)
 OBJ				=	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-all: $(LIBFT) $(NAME) $(INCLUDES)/lem_in.h
+all: $(OBJ_DIR) $(LIBFT) $(NAME) $(INCLUDES)/lem_in.h
 	@echo "BRAVO!!"
+
+$(OBJ_DIR):
+	@mkdir $(OBJ_DIR)
 
 $(LIBFT):
 	@echo "creation de la libft.."

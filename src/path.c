@@ -24,7 +24,6 @@ static int		recursive(t_list **path, t_list *current_path, t_room *room, t_list 
 	t_list	*pipe_x;
 	t_room	*ret;
 
-	//ft_create_path(&current_path, room);
 	ft_lstnewadd(NULL, 0, &current_path);
 	current_path->content = room;
 	if (room->type == 2)
