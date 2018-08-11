@@ -49,4 +49,3 @@ int			ft_choose_path(t_data *data)
 	}
 	return (0);
 }
-

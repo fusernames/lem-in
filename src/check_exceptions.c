@@ -2,7 +2,7 @@
 
 int		ft_check_exceptions(t_list *rooms, t_list *pipes)
 {
-	t_pipe	*pipe;	
+	t_pipe	*pipe;
 	while (rooms)
 	{
 		if (ft_find_room_by_name(rooms->next, ((t_room *)rooms->content)->name))
