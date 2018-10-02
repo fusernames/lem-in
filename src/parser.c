@@ -48,7 +48,8 @@ int			ft_parser(t_data *data)
 {
 	char	*line;
 	int		nb_ants;
-	
+
+	line = NULL;
 	get_next_line(0, &line);
 	nb_ants = ft_atoi(line);
 	if (ft_parser_room(data, &line)

@@ -35,6 +35,7 @@ int		main(void)
 		exit (1);
 	data.paths = ft_find_path(ft_find_room_by_type(data.rooms, 1), data.pipes);
 	ft_print_comb(data.paths);
+	printf("\n");
 	ft_find_comb(data.paths, NULL, &(data.combs), NULL);
 	ft_print_comb(data.combs);
 	ft_travel(&data);
