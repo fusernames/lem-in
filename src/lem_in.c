@@ -29,10 +29,8 @@ int		main(void)
 	data.ants = NULL;
 	data.paths = NULL;
 	data.combs = NULL;
-	if (ft_parser(&data))
-		exit(1);
-	if (ft_check_exceptions(data.rooms, data.pipes))
-		exit (1);
+	ft_parser(&data);
+	ft_check_exceptions(data.rooms, data.pipes);
 	data.paths = ft_find_path(ft_find_room_by_type(data.rooms, 1), data.pipes);
 	ft_print_comb(data.paths);
 	printf("\n");
@@ -42,6 +40,6 @@ int		main(void)
 	// boucle (1)
 	// faire bouger de 1 de toute les salles
 	// faire choisir un chemin les fourmis du start
-	ft_clean(&data);
+	ft_free_data(&data);
 	return (0);
 }

@@ -42,7 +42,7 @@ int		ft_create_ant(int nb_ants, t_data *data)
 	while (nb_ants-- > 0)
 	{
 		ft_bzero(&new, sizeof(new));
-		new.id = ft_lstlen(data->ants);
+		new.id = ft_lstlen(data->ants) + 1;
 		new.room = ft_find_room_by_type(data->rooms, 1);
 		ft_lstnewadd(&new, sizeof(new), &(data->ants));
 	}

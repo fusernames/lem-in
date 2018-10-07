@@ -8,7 +8,7 @@ static int	ft_parser_room(t_data *data, char **line)
 	while (1)
 	{
 		if (!(get_next_line(0, line)))
-			return (1);
+			ft_error(NULL);
 		if ((*line)[0] == '#' && (*line)[1] != '#')
 			;
 		else if (ft_strstr(*line, "-"))
@@ -20,7 +20,7 @@ static int	ft_parser_room(t_data *data, char **line)
 		else
 		{
 			if (ft_create_room(*line, type, data))
-				return (1);
+				ft_error(NULL);
 			type = 0;
 		}
 	}
@@ -34,12 +34,12 @@ static int	ft_parser_pipe(t_data *data, char **line)
 		if ((*line)[0] == '#')
 			;
 		else if (ft_charoc(*line, '-') != 1)
-			break;
+			break ;
 		else 
 			if (ft_create_pipe(*line, data))
-				return (1);
+				ft_error(NULL);
 		if (!(get_next_line(0, line)))
-			break;
+			break ;
 	}
 	return (0);
 }
@@ -50,11 +50,14 @@ int			ft_parser(t_data *data)
 	int		nb_ants;
 
 	line = NULL;
-	get_next_line(0, &line);
-	nb_ants = ft_atoi(line);
-	if (ft_parser_room(data, &line)
-		|| ft_parser_pipe(data, &line)
-		|| ft_create_ant(nb_ants, data))
-		return (1);
+	if (!get_next_line(0, &line))
+		ft_error(NULL);
+	if ((nb_ants = ft_atoi(line)) <= 0)
+		ft_error(NULL);
+	ft_parser_room(data, &line);
+	if (!line)
+		ft_error(NULL);
+	ft_parser_pipe(data, &line);
+	ft_create_ant(nb_ants, data);
 	return (0);
 }

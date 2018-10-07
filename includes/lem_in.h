@@ -44,9 +44,10 @@ int		ft_create_path(t_list **path, t_room *room);
 
 int		ft_find_comb(t_list *paths, t_list *path, t_list **comb, t_list *current_comb);
 
-int		ft_clean(t_data *data);
+int		ft_free_data(t_data *data);
 int		ft_travel(t_data *data);
 int		ft_choose_path(t_data *data);
 int		ft_print_move(t_ant *ant);
+void	ft_error(char *str);
 
 #endif
