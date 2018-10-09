@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/09 15:13:47 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/10/09 16:12:02 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 static int	ft_parser_room(t_data *data, char **line)
@@ -50,7 +62,7 @@ int			ft_parser(t_data *data)
 	int		nb_ants;
 
 	line = NULL;
-	if (!get_next_line(0, &line))
+	if (!get_next_line(0, &line) || !ft_strisnum(line))
 		ft_error(NULL);
 	if ((nb_ants = ft_atoi(line)) <= 0)
 		ft_error(NULL);
