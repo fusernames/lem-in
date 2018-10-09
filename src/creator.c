@@ -44,7 +44,7 @@ int		ft_create_ant(int nb_ants, t_data *data)
 		ft_bzero(&new, sizeof(new));
 		new.id = ft_lstlen(data->ants) + 1;
 		new.room = ft_find_room_by_type(data->rooms, 1);
-		ft_lstnewadd(&new, sizeof(new), &(data->ants));
+		ft_lstnewlast(&new, sizeof(new), &(data->ants));
 	}
 	return (0);
 }

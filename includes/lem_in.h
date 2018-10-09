@@ -49,5 +49,6 @@ int		ft_travel(t_data *data);
 int		ft_choose_path(t_data *data);
 int		ft_print_move(t_ant *ant);
 void	ft_error(char *str);
+void	ft_print_data(t_data *data);
 
 #endif

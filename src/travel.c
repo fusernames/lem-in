@@ -2,7 +2,7 @@
 
 int		ft_print_move(t_ant *ant)
 {
-	ft_putstr("L");
+	ft_putchar('L');
 	ft_putnbr(ant->id);
 	ft_putchar('-');
 	ft_putstr(ant->room->name);
