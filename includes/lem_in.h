@@ -31,7 +31,8 @@ typedef struct	s_ant {
 }				t_ant;
 
 int		ft_parser(t_data *data);
-int		ft_check_exceptions(t_list *rooms, t_list *pipes);
+int		ft_check_exceptions(t_data *data);
+
 t_list	*ft_find_path(t_room *room, t_list *pipe);
 
 t_room	*ft_find_room_by_name(t_list *start, char *name);
@@ -48,7 +49,7 @@ int		ft_free_data(t_data *data);
 int		ft_travel(t_data *data);
 int		ft_choose_path(t_data *data);
 int		ft_print_move(t_ant *ant);
-void	ft_error(char *str);
+void	ft_error(char *str, t_data *data);
 void	ft_print_data(t_data *data);
 
 #endif
