@@ -29,16 +29,17 @@ int		main(void)
 	data.ants = NULL;
 	data.paths = NULL;
 	data.combs = NULL;
+	data.str = NULL;
 	ft_parser(&data);
 	ft_check_exceptions(&data);
 	data.paths = ft_find_path(ft_find_room_by_type(data.rooms, 1), data.pipes);
 	if (!data.paths)
 		ft_error("no valid paths found.", &data);
+	ft_putendl(data.str);
 	ft_print_comb(data.paths);
 	printf("\n");
 	ft_find_comb(data.paths, NULL, &(data.combs), NULL);
 	ft_print_comb(data.combs);
-	ft_print_data(&data);
 	ft_travel(&data);
 	// boucle (1)
 	// faire bouger de 1 de toute les salles

@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 16:16:42 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/10/07 16:16:50 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/11 17:14:35 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int			ft_free_data(t_data *data)
 	ft_lstfree(&(data->pipes));
 	ft_lstfree(&(data->ants));
 	ft_lstfree(&(data->rooms));
+	free(data->str);
 	return (0);
 }

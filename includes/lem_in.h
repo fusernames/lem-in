@@ -11,6 +11,7 @@ typedef struct	s_data {
 	t_list		*pipes;
 	t_list		*paths;
 	t_list		*combs;
+	char		*str;
 }				t_data;
 
 typedef struct	s_room {
@@ -51,5 +52,6 @@ int		ft_choose_path(t_data *data);
 int		ft_print_move(t_ant *ant);
 void	ft_error(char *str, t_data *data);
 void	ft_print_data(t_data *data);
+char	*ft_strjoin2(char *s1, char *s2);
 
 #endif
