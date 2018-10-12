@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   choose_path.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/12 19:23:45 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/10/12 19:24:51 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 static t_room	*path_is_avalaible(t_list *path, t_list *ants)
@@ -15,7 +27,7 @@ static t_room	*path_is_avalaible(t_list *path, t_list *ants)
 	return (path->content);
 }
 
-static int	start_path(t_ant *ant, t_data *data)
+static int		start_path(t_ant *ant, t_data *data)
 {
 	t_list	*shortest;
 	t_list	*paths;
@@ -25,7 +37,8 @@ static int	start_path(t_ant *ant, t_data *data)
 	while (paths)
 	{
 		if (path_is_avalaible(paths->content, data->ants) &&
-			(shortest == NULL || ft_lstlen(paths->content) < ft_lstlen(shortest)))
+			(shortest == NULL
+			|| ft_lstlen(paths->content) < ft_lstlen(shortest)))
 			shortest = paths->content;
 		paths = paths->next;
 	}
@@ -36,7 +49,7 @@ static int	start_path(t_ant *ant, t_data *data)
 	return (0);
 }
 
-int			ft_choose_path(t_data *data)
+int				ft_choose_path(t_data *data)
 {
 	t_list	*ants;
 

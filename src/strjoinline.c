@@ -6,13 +6,13 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 16:08:54 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/10/11 17:14:20 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/12 19:05:06 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin2(char *str, char *line)
+char	*ft_strjoinline(char *str, char *line)
 {
 	char	*new;
 	int		i;

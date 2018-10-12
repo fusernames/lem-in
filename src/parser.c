@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 15:13:47 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/10/11 16:32:31 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/12 19:48:41 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_parser_room(t_data *data, char **line)
 		if (!(get_next_line(0, line)))
 			ft_error(NULL, data);
 		if (ft_strstr(*line, "-"))
-			break;
+			break ;
 		else if (!ft_strcmp(*line, "##start"))
 			type = 1;
 		else if (!ft_strcmp(*line, "##end"))
@@ -35,7 +35,7 @@ static int	ft_parser_room(t_data *data, char **line)
 				ft_error(NULL, data);
 			type = 0;
 		}
-		data->str = ft_strjoin2(data->str, *line);
+		data->str = ft_strjoinline(data->str, *line);
 	}
 	return (0);
 }
@@ -44,14 +44,16 @@ static int	ft_parser_pipe(t_data *data, char **line)
 {
 	while (1)
 	{
-		data->str = ft_strjoin2(data->str, *line);
+		data->str = ft_strjoinline(data->str, *line);
 		if ((*line)[0] == '#')
 			;
 		else if (ft_charoc(*line, '-') != 1)
-			break ;
-		else 
+			ft_error(NULL, data);
+		else
+		{
 			if (ft_create_pipe(*line, data))
 				ft_error(NULL, data);
+		}
 		if (!(get_next_line(0, line)))
 			break ;
 	}
@@ -64,9 +66,11 @@ int			ft_parser(t_data *data)
 	int		nb_ants;
 
 	line = NULL;
-	if (!get_next_line(0, &line) || !ft_strisnum(line))
+	while ((get_next_line(0, &line) && line && *line == '#'))
+		data->str = ft_strjoinline(data->str, line);
+	if ((!line || !ft_strisnum(line)))
 		ft_error(NULL, data);
-	data->str = ft_strjoin2(data->str, line);
+	data->str = ft_strjoinline(data->str, line);
 	if ((nb_ants = ft_atoi(line)) <= 0)
 		ft_error(NULL, data);
 	ft_parser_room(data, &line);

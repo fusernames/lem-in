@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   travel.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/12 19:49:09 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/10/12 19:50:31 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
-int		ft_print_move(t_ant *ant)
+int			ft_print_move(t_ant *ant)
 {
 	ft_putchar('L');
 	ft_putnbr(ant->id);
@@ -27,12 +39,12 @@ static int	move_ant(t_room *src, t_room *dest, t_list *ants)
 	return (0);
 }
 
-int		path_travel(t_data *data)
+int			path_travel(t_data *data)
 {
 	t_list	*paths;
 	t_list	*path;
 	t_list	*prev;
-	
+
 	paths = data->combs;
 	while (paths)
 	{
@@ -46,13 +58,13 @@ int		path_travel(t_data *data)
 			path = path->next;
 		}
 		paths = paths->next;
-	}	
-	return (0);		
+	}
+	return (0);
 }
 
 static int	is_finished(t_data *data)
 {
-	t_list 	*ants;
+	t_list	*ants;
 
 	ants = data->ants;
 	while (ants)

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   creator.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/12 19:25:20 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/10/12 19:25:46 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 int		ft_create_room(char *line, int type, t_data *data)
 {
-	char 	**tab;
+	char	**tab;
 	t_room	new;
 
 	tab = ft_strsplit(line, ' ');
@@ -38,7 +50,7 @@ int		ft_create_pipe(char *line, t_data *data)
 int		ft_create_ant(int nb_ants, t_data *data)
 {
 	t_ant new;
-	
+
 	while (nb_ants-- > 0)
 	{
 		ft_bzero(&new, sizeof(new));

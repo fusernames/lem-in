@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   path.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/12 19:45:47 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/10/12 19:47:18 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
-static t_room	*ft_path_contains(t_pipe *pipe, t_list *current_path, t_room *room)
+static t_room	*ft_path_contains(t_pipe *pipe, t_list *cur_path, t_room *room)
 {
 	t_room	*ret;
 
@@ -19,7 +31,8 @@ static t_room	*ft_path_contains(t_pipe *pipe, t_list *current_path, t_room *room
 	return (ret);
 }
 
-static int		recursive(t_list **path, t_list *current_path, t_room *room, t_list *pipe)
+static int		recursive(t_list **path, t_list *cur_path,
+		t_room *room, t_list *pipe)
 {
 	t_list	*pipe_x;
 	t_room	*ret;
@@ -46,7 +59,7 @@ static int		recursive(t_list **path, t_list *current_path, t_room *room, t_list 
 	return (0);
 }
 
-t_list		*ft_find_path(t_room *room, t_list *pipe)
+t_list			*ft_find_path(t_room *room, t_list *pipe)
 {
 	t_list	*paths;
 

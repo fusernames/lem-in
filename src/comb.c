@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comb.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/12 19:26:30 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/10/12 19:28:03 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 static int		is_same_path(t_list *path1, t_list *path2)
@@ -27,7 +39,7 @@ static int		path_cmp(t_list *path1, t_list *path2)
 				return (1);
 			path2 = path2->next;
 		}
-		path1 = path1->next;	
+		path1 = path1->next;
 	}
 	return (0);
 }
@@ -54,10 +66,11 @@ static int		score(t_list *comb)
 		score -= ft_lstlen((t_list *)comb->content) / 2;
 		comb = comb->next;
 	}
-	return (score);	
+	return (score);
 }
 
-int		ft_find_comb(t_list *paths, t_list *path, t_list **comb, t_list *current_comb)
+int				ft_find_comb(t_list *paths, t_list *path,
+		t_list **comb, t_list *current_comb)
 {
 	t_list	*paths_cpy;
 

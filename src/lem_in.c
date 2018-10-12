@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lem_in.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/12 18:54:27 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/10/12 19:26:09 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
-static int		ft_print_comb(t_list *comb)
+/*static int		ft_print_comb(t_list *comb)
 {
 	t_list	*path;
 
@@ -18,12 +30,12 @@ static int		ft_print_comb(t_list *comb)
 		comb = comb->next;
 	}
 	return (0);
-}
+}*/
 
 int		main(void)
 {
 	t_data	data;
-	
+
 	data.rooms = NULL;
 	data.pipes = NULL;
 	data.ants = NULL;
@@ -36,14 +48,11 @@ int		main(void)
 	if (!data.paths)
 		ft_error("no valid paths found.", &data);
 	ft_putendl(data.str);
-	ft_print_comb(data.paths);
-	printf("\n");
+//	ft_print_comb(data.paths);
+//	printf("\n");
 	ft_find_comb(data.paths, NULL, &(data.combs), NULL);
-	ft_print_comb(data.combs);
+//	ft_print_comb(data.combs);
 	ft_travel(&data);
-	// boucle (1)
-	// faire bouger de 1 de toute les salles
-	// faire choisir un chemin les fourmis du start
 	ft_free_data(&data);
 	return (0);
 }
