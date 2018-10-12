@@ -6,7 +6,7 @@
 #    By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/14 06:10:43 by alcaroff          #+#    #+#              #
-#    Updated: 2018/02/14 06:55:44 by alcaroff         ###   ########.fr        #
+#    Updated: 2018/10/12 20:54:40 by alcaroff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,19 @@ LIBFT_INCLUDES	=	libft/includes
 INCLUDES		= 	includes
 OBJ_DIR			=	obj
 SRC_DIR			= 	src
-SRC				=	$(wildcard $(SRC_DIR)/*.c)
+SRC				=	$(SRC_DIR)/lem_in.c \
+					$(SRC_DIR)/check_exceptions.c \
+					$(SRC_DIR)/choose_path.c \
+					$(SRC_DIR)/comb.c \
+					$(SRC_DIR)/creator.c \
+					$(SRC_DIR)/else.c \
+					$(SRC_DIR)/error.c \
+					$(SRC_DIR)/free.c \
+					$(SRC_DIR)/parser.c \
+					$(SRC_DIR)/path.c \
+					$(SRC_DIR)/print.c \
+					$(SRC_DIR)/strjoinline.c \
+					$(SRC_DIR)/travel.c
 OBJ				=	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(OBJ_DIR) $(LIBFT) $(NAME) $(INCLUDES)/lem_in.h

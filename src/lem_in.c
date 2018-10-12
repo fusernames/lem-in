@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 18:54:27 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/10/12 19:26:09 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/12 20:50:27 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ int		main(void)
 	if (!data.paths)
 		ft_error("no valid paths found.", &data);
 	ft_putendl(data.str);
-//	ft_print_comb(data.paths);
-//	printf("\n");
 	ft_find_comb(data.paths, NULL, &(data.combs), NULL);
-//	ft_print_comb(data.combs);
 	ft_travel(&data);
 	ft_free_data(&data);
 	return (0);
