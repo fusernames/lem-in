@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 20:56:07 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/10/12 20:57:14 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/14 21:53:06 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_data {
 	t_list		*paths;
 	t_list		*combs;
 	char		*str;
+	char		flags[255];
 }				t_data;
 
 typedef struct	s_room {
@@ -66,5 +67,6 @@ int				ft_print_move(t_ant *ant);
 void			ft_error(char *str, t_data *data);
 void			ft_print_data(t_data *data);
 char			*ft_strjoinline(char *str, char *line);
+int				ft_parse_flags(int ac, char **av, char *flags);
 
 #endif

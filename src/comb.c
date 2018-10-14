@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 19:26:30 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/10/12 19:28:03 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/14 22:16:45 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int		score(t_list *comb)
 	int		score;
 
 	score = 0;
-	score += ft_lstlen(comb) * 10;
+	score += ft_lstlen(comb) * 100;
 	while (comb)
 	{
 		score -= ft_lstlen((t_list *)comb->content) / 2;

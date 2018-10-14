@@ -6,7 +6,7 @@
 #    By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/14 06:10:43 by alcaroff          #+#    #+#              #
-#    Updated: 2018/10/12 20:54:40 by alcaroff         ###   ########.fr        #
+#    Updated: 2018/10/14 21:55:11 by alcaroff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC				=	$(SRC_DIR)/lem_in.c \
 					$(SRC_DIR)/path.c \
 					$(SRC_DIR)/print.c \
 					$(SRC_DIR)/strjoinline.c \
+					$(SRC_DIR)/parse_flags.c \
 					$(SRC_DIR)/travel.c
 OBJ				=	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
