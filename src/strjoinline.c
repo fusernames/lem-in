@@ -15,9 +15,7 @@
 char	*ft_strjoinline(char *str, char *line)
 {
 	char	*new;
-	int		i;
 
-	i = 0;
 	new = ft_strnew(ft_strlen(str) + ft_strlen(line) + 1);
 	if (new == NULL)
 		return (NULL);
