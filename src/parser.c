@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 15:13:47 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/10/13 18:07:05 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/15 17:22:56 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_parser_room(t_data *data, char **line)
 	type = 0;
 	while (1)
 	{
-		if (!(get_next_line(0, line)))
+		if (get_next_line(0, line) <= 0)
 			ft_error(NULL, data);
 		if (ft_strstr(*line, "-"))
 			break ;
@@ -54,7 +54,7 @@ static int	ft_parser_pipe(t_data *data, char **line)
 			if (ft_create_pipe(*line, data))
 				ft_error(NULL, data);
 		}
-		if (!(get_next_line(0, line)))
+		if (get_next_line(0, line) <= 0)
 			break ;
 	}
 	return (0);
@@ -66,7 +66,7 @@ int			ft_parser(t_data *data)
 	int		nb_ants;
 
 	line = NULL;
-	while ((get_next_line(0, &line) && line && *line == '#'))
+	while ((get_next_line(0, &line) > 0 && line && *line == '#'))
 		data->str = ft_strjoinline(data->str, line);
 	if ((!line || !ft_strisnum(line)))
 		ft_error(NULL, data);
